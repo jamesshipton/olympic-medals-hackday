@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120804121819) do
+ActiveRecord::Schema.define(:version => 20120804124256) do
 
   create_table "athletes", :force => true do |t|
     t.string   "guid"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20120804121819) do
     t.integer  "gold"
     t.integer  "silver"
     t.integer  "bronze"
+    t.string   "discipline"
   end
 
 end
