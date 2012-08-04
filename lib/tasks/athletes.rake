@@ -15,6 +15,8 @@ task :athletes => :environment do
       date_of_birth = athlete.xpath('date_of_birth').text
       country_name  = athlete.xpath('country_url_name').text
 
+      discipline    = athlete.xpath('disciplines/discipline').map { |d| d.xpath('name').text }.join(',')
+
       medal_doc = Nokogiri::XML(open("http://open.live.bbc.co.uk/olympicdata/public/medallists/athletes/#{guid}"))
 
       if medal_doc.xpath('//athlete/m').text.present?
@@ -32,7 +34,8 @@ task :athletes => :environment do
         country_name: country_name,
         gold: gold,
         silver: silver,
-        bronze: bronze )
+        bronze: bronze,
+        discipline: discipline )
     end
   end
 end
