@@ -6,4 +6,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require ext-all
+//= require example-data
+//= require Bar
