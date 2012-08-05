@@ -4,7 +4,8 @@ desc 'add athlete data'
 task :athletes => :environment do
   Athlete.destroy_all
 
-  Dir.glob("/Users/jamesshipton/Dropbox/learn/athlete_data/*.xml") do |filename|
+  Dir.glob('lib/assets/athlete_xml/*.xml') do |filename|
+    puts filename
     doc = Nokogiri::XML(File.open(filename))
 
     doc.xpath('//athlete').each do |athlete|
