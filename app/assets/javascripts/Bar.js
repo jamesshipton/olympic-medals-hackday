@@ -33,7 +33,8 @@ Ext.onReady(function () {
 			height: 6000,
 		    animate: true,
             animate: true,
-            shadow: true,
+            shadow: false,
+			border: '10 10 10 10',
             store: store1,
 			renderTo: Ext.getBody(),
             axes: [{
@@ -53,20 +54,6 @@ Ext.onReady(function () {
                 title: 'Country'
             }],
             theme: 'White',
-            background: {
-              gradient: {
-                id: 'backgroundGradient',
-                angle: 45,
-                stops: {
-                  0: {
-                    color: '#ffffff'
-                  },
-                  100: {
-                    color: '#eaf1f8'
-                  }
-                }
-              }
-            },
             series: [{
                 type: 'bar',
                 axis: 'bottom',

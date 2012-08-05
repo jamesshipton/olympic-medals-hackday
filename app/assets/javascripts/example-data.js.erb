@@ -8,7 +8,6 @@ Ext.onReady(function() {
         var data = [],i;
 
 		var countries = <%= Athlete.all.map(&:country_name).uniq.sort.to_s.force_encoding('utf-8') %> ;
-
 		var average_ages = <%= Athlete.all.map(&:country_name).uniq.sort.map do |country|
 		  Athlete.where(country_name: country).map(&:date_of_birth).inject(0) { |total_age, dob| total_age + (Date.today.year - Date.parse(dob).year - (Date.parse(dob).change(:year => Date.today.year) > Date.today ? 1 : 0)) } / Athlete.where(country_name: country).count
 		end.to_s %> ;
@@ -17,8 +16,8 @@ Ext.onReady(function() {
 
         for (i = 0; i < countries.length; i++) {
             data.push({
-                name: countries[i],
-                data1: average_ages[i]
+                name: countries[i].charAt(0).toUpperCase() + countries[i].slice(1),
+                data1: average_ages[i],
               });
         }
         console.log(data);
