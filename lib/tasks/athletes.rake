@@ -5,7 +5,6 @@ task :athletes => :environment do
   Athlete.destroy_all
 
   Dir.glob('lib/assets/athlete_xml/*.xml') do |filename|
-    puts filename
     doc = Nokogiri::XML(File.open(filename))
 
     doc.xpath('//athlete').each do |athlete|
